@@ -16,8 +16,7 @@ const temperatures = [
  */
 function filterHighTemperatures(temps: number[]): number[] {
   // Your code here
-
-  return []; // replace the empty array with what you see is fit
+  return temps.filter(temp => temp >= 25); // replace the empty array with what you see is fit
 }
 
 /**
@@ -30,7 +29,7 @@ function filterHighTemperatures(temps: number[]): number[] {
 function filterLowTemperatures(temps: number[]): number[] {
   // Your code here
 
-  return []; // replace the empty array with what you see is fit
+  return temps.filter(temp => temp < 20); // replace the empty array with what you see is fit
 }
 
 /**
@@ -43,8 +42,7 @@ function filterLowTemperatures(temps: number[]): number[] {
  */
 function convertCelsiusToFahrenheit(temps: number[]): number[] {
   // Your code here
-
-  return []; // replace the empty array with what you see is fit
+  return temps.map(temp => (temp * 9/5) + 32); // replace the empty array with what you see is fit
 }
 
 /**
@@ -61,8 +59,15 @@ type TemperatureLabel = "Warm" | "Mild" | "Cool";
 
 function labelTemperatures(temps: number[]): TemperatureLabel[] {
   // Your code here
-
-  return []; // replace the empty array with what you see is fit
+  return temps.map(temp => {
+    if (temp >= 25) {
+      return "Warm";
+    } else if (temp >= 20) {
+      return "Mild";
+    } else {
+      return "Cool";
+    }
+  }); // replace the empty array with what you see is fit
 }
 
 /**
@@ -75,7 +80,7 @@ function labelTemperatures(temps: number[]): TemperatureLabel[] {
 function getMaxTemperature(temps: number[]): number {
   // Your code here
 
-  return -1; // replace -1 with what you see is fit
+  return Math.max(...temps); // replace -1 with what you see is fit
 }
 
 /**
@@ -87,8 +92,7 @@ function getMaxTemperature(temps: number[]): number {
  */
 function getMinTemperature(temps: number[]): number {
   // Your code here
-
-  return -1; // replace -1 with what you see is fit
+  return Math.min(...temps); // replace -1 with what you see is fit
 }
 
 export {
